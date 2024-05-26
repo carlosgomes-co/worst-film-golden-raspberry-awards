@@ -15,7 +15,7 @@ nav {
         text-decoration: none;
         display: block;
 
-        &:hover {
+        &:hover, &:active, &.active {
           color: #438ade;
         }
       }

@@ -1,0 +1,12 @@
+section {
+  div {
+    display: flex;
+
+    app-card {
+      flex: 1;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+}

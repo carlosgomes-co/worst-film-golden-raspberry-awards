@@ -1,12 +1,7 @@
 main {
   display: flex;
-  min-height: 88vh;
+  min-height: 100%;
 
-  app-sidebar {
-    flex: 1;
-  }
-
-  section {
-    flex: 2;
-  }
+  app-sidebar { flex: 1; }
+  section { flex: 4; padding: 28px; }
 }
