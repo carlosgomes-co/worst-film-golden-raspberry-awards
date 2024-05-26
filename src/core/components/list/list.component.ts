@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { fade } from '../../../shared/animations/fade';
 import { CardComponent } from "../../../shared/components/card/card.component";
+import { ListMoviesComponent } from "../list-movies/list-movies.component";
 
 @Component({
     selector: 'app-list',
@@ -8,8 +9,6 @@ import { CardComponent } from "../../../shared/components/card/card.component";
     templateUrl: './list.component.html',
     styleUrl: './list.component.scss',
     animations: [fade],
-    imports: [CardComponent]
+    imports: [CardComponent, ListMoviesComponent]
 })
-export class ListComponent {
-
-}
+export class ListComponent { }

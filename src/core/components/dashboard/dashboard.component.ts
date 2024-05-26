@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { fade } from '../../../shared/animations/fade';
 import { CardComponent } from "../../../shared/components/card/card.component";
+import { ListYearsWithMultipleWinnersComponent } from "../list-years-with-multiple-winners/list-years-with-multiple-winners.component";
+import { Top3StudiosWithWinnersComponent } from "../top-3-studios-with-winners/top-3-studios-with-winners.component";
+import { ProducersWithLongestAndShortestIntervalBetweenWinsComponent } from "../producers-with-longest-and-shortest-interval-between-wins/producers-with-longest-and-shortest-interval-between-wins.component";
+import { ListMovieWinnersByYearComponent } from "../list-movie-winners-by-year/list-movie-winners-by-year.component";
 
 @Component({
     selector: 'app-dashboard',
@@ -8,8 +12,6 @@ import { CardComponent } from "../../../shared/components/card/card.component";
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.scss',
     animations: [fade],
-    imports: [CardComponent]
+    imports: [CardComponent, ListYearsWithMultipleWinnersComponent, Top3StudiosWithWinnersComponent, ProducersWithLongestAndShortestIntervalBetweenWinsComponent, ListMovieWinnersByYearComponent]
 })
-export class DashboardComponent {
-
-}
+export class DashboardComponent { }
