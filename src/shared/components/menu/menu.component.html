@@ -1,5 +1,7 @@
 <nav>
   <ul>
-    <li><a href="#">Home</a></li>
+    @for (item of items; track item.name) {
+      <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+    }
   </ul>
 </nav>

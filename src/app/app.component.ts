@@ -10,4 +10,15 @@ import { SidebarComponent } from "../shared/components/sidebar/sidebar.component
     styleUrl: './app.component.scss',
     imports: [RouterOutlet, HeaderComponent, SidebarComponent]
 })
-export class AppComponent { }
+export class AppComponent { 
+    items = [
+        {
+            name: 'Dashboard',
+            link: ''
+        },
+        {
+            name: 'List',
+            link: ''
+        }
+    ]
+}
