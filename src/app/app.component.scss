@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  min-height: 88vh;
+
+  app-sidebar {
+    flex: 1;
+  }
+
+  section {
+    flex: 2;
+  }
+}
