@@ -1,6 +1,12 @@
-# WorstFilmGoldenRaspberryAwards
+# 🌕 🍇 🏆 Golden Raspberry Awards
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+
+## Preview
+
+![dashboard](screenshots/worst-film-golden-raspberry-awards-dashboard.png)
+
+![list](screenshots/worst-film-golden-raspberry-awards-list.png)
 
 ## Development server
 
