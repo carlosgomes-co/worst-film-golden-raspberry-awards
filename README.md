@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Preview
 
+The project is deployed using GH Pages on [golden-raspberry-awards](https://carlosgomes-co.github.io/worst-film-golden-raspberry-awards).
+
 ![dashboard](screenshots/worst-film-golden-raspberry-awards-dashboard.png)
 
 ![list](screenshots/worst-film-golden-raspberry-awards-list.png)
