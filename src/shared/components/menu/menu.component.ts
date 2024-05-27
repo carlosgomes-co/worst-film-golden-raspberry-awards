@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { MatRipple } from '@angular/material/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MatRipple],
   providers: [],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { fade } from '../shared/animations/fade';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { SidebarComponent } from '../shared/components/sidebar/sidebar.component';
-import { fade } from '../shared/animations/fade';
+import { MoviesService } from '../shared/services/movies.service';
+import { Movies } from '../shared/services/movies.interface';
 
 @Component({
     selector: 'app-root',
@@ -12,8 +14,8 @@ import { fade } from '../shared/animations/fade';
     imports: [RouterOutlet, HeaderComponent, SidebarComponent],
     animations: [fade]
 })
-export class AppComponent { 
-    items = [
+export class AppComponent {
+    public items = [
         {
             name: 'Dashboard',
             link: '/dashboard'
@@ -22,5 +24,15 @@ export class AppComponent {
             name: 'List',
             link: '/list'
         }
-    ]
+    ];
+
+    constructor(private moviesService: MoviesService) {
+        this.moviesService.getMovies().subscribe((movies: Movies) => {
+            console.log(movies);
+        });
+    }
+
+    public get loading(): boolean {
+        return this.moviesService.loading();
+    }
 }

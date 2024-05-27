@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Movies } from '../../../shared/services/movies.interface';
 
 @Component({
   selector: 'app-top-3-studios-with-winners',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './top-3-studios-with-winners.component.scss'
 })
 export class Top3StudiosWithWinnersComponent {
-
+  @Input() public movies: Movies = {} as Movies;
 }

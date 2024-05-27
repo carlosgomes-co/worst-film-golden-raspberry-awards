@@ -2,7 +2,7 @@
   <ul>
     @for (item of items; track item.name) {
       <li>
-        <a
+        <a matRipple
           routerLink="/{{ item.link }}"
           routerLinkActive="active"
         >{{ item.name }}</a>
