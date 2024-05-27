@@ -33,7 +33,8 @@ export class Top3StudiosWithWinnersComponent implements OnChanges {
         studios.forEach((studio: string) => result.push({ name: studio, winnerCount: 1 }));
 
         return result;
-      }, []).sort((a, b) => b.winnerCount - a.winnerCount);
+      }, []).sort((a, b) => b.winnerCount - a.winnerCount)
+      .slice(0, 3);
     }
   }
 }

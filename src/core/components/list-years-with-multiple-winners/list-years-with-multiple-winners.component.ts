@@ -34,7 +34,8 @@ export class ListYearsWithMultipleWinnersComponent implements OnChanges {
         result.push({ year, winnerCount: 1 });
 
         return result;
-      }, []).sort((a, b) => b.winnerCount - a.winnerCount);
+      }, []).sort((a, b) => b.winnerCount - a.winnerCount)
+      .slice(0, 3);
     }
   }
 }

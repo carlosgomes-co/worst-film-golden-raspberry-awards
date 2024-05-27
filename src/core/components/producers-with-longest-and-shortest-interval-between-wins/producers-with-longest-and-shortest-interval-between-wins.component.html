@@ -1,1 +1,58 @@
-<p>producers-with-longest-and-shortest-interval-between-wins works!</p>
+<div class="producers-with-longest-and-shortest-interval-between-wins mat-elevation-z8" tabindex="0">
+  <br>
+  <h6><small>Maximum</small></h6>
+  <table mat-table [dataSource]="maximum">
+
+    <ng-container matColumnDef="producer">
+      <th mat-header-cell *matHeaderCellDef> Producer </th>
+      <td mat-cell *matCellDef="let item"> {{item.producer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="interval">
+      <th mat-header-cell *matHeaderCellDef> Interval </th>
+      <td mat-cell *matCellDef="let item"> {{item.interval}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="previousYear">
+      <th mat-header-cell *matHeaderCellDef> Previous Year </th>
+      <td mat-cell *matCellDef="let item"> {{item.previousYear}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="followingYear">
+      <th mat-header-cell *matHeaderCellDef> Following Year </th>
+      <td mat-cell *matCellDef="let item"> {{item.followingYear}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <br>
+  <h6><small>Minumum</small></h6>
+  <table mat-table [dataSource]="minimum">
+
+    <ng-container matColumnDef="producer">
+      <th mat-header-cell *matHeaderCellDef> Producer </th>
+      <td mat-cell *matCellDef="let item"> {{item.producer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="interval">
+      <th mat-header-cell *matHeaderCellDef> Interval </th>
+      <td mat-cell *matCellDef="let item"> {{item.interval}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="previousYear">
+      <th mat-header-cell *matHeaderCellDef> Previous Year </th>
+      <td mat-cell *matCellDef="let item"> {{item.previousYear}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="followingYear">
+      <th mat-header-cell *matHeaderCellDef> Following Year </th>
+      <td mat-cell *matCellDef="let item"> {{item.followingYear}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>

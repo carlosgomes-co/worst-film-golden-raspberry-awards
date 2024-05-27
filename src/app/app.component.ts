@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { fade } from '../shared/animations/fade';
 import { HeaderComponent } from '../shared/components/header/header.component';
@@ -14,7 +14,7 @@ import { Movies } from '../shared/services/movies.interface';
     imports: [RouterOutlet, HeaderComponent, SidebarComponent],
     animations: [fade]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     public items = [
         {
             name: 'Dashboard',
@@ -25,14 +25,14 @@ export class AppComponent {
             link: '/list'
         }
     ];
-
-    constructor(private moviesService: MoviesService) {
-        this.moviesService.getMovies().subscribe((movies: Movies) => {
-            console.log(movies);
-        });
-    }
-
     public get loading(): boolean {
         return this.moviesService.loading();
     }
+
+    constructor(private moviesService: MoviesService) { }
+
+    public ngOnInit(): void {
+        this.moviesService.getMovies().subscribe();
+    }
+
 }

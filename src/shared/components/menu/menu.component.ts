@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { fade } from '../../animations/fade';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   providers: [],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
+  animations: [fade]
 })
 export class MenuComponent {
   @Input() items: any[] = [];
