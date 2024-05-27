@@ -15,7 +15,7 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<Movies> {
-    return this.http.get<Movies>(this.baseUrl).pipe(
+    return this.http.get<Movies>(this.baseUrl, { params: { size: 206 }}).pipe(
       tap(() => this.loading.set(false)),
       map((movies: Movies) => this.movies = movies)
     );

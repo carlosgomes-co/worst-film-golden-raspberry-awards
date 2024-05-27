@@ -1,1 +1,18 @@
-<p>list-years-with-multiple-winners works!</p>
+<div class="list-years-with-multiple-winners mat-elevation-z8" tabindex="0">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef> Year </th>
+      <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="winnerCount">
+      <th mat-header-cell *matHeaderCellDef> Win Count </th>
+      <td mat-cell *matCellDef="let element"> {{element.winnerCount}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
