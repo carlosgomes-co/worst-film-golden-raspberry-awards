@@ -1,0 +1,15 @@
+@defer (when !loading) {
+  <app-header />
+  <main>
+    <app-sidebar [items]="items" />
+    <section><router-outlet /></section>
+  </main>
+} 
+
+@placeholder {
+  <app-header />
+  <main>
+    <app-sidebar [items]="[]" />
+    <section><p style="text-align: center;">Loading...</p></section>
+  </main>
+}

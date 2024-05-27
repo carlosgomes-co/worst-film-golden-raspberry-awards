@@ -1,0 +1,10 @@
+.list-movies {
+  margin-top: 20px;
+
+  table th {
+    mat-form-field, mat-select {
+      width: 125%;
+      transform: translateX(-45px) scale(0.75);
+    }
+  }
+}
