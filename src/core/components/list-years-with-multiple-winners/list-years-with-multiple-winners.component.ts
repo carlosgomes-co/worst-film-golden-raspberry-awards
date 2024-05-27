@@ -21,7 +21,6 @@ export class ListYearsWithMultipleWinnersComponent implements OnChanges {
 
   ngOnChanges(simpleChanges: SimpleChanges) {
     if (simpleChanges['movies']?.currentValue) {
-      // List years with multiple winners using two colluns year and winnerCount
       this.dataSource = this.movies._embedded.movies.reduce((result: Item[], movie: Movie) => {
         const year = movie.year;
         const yearFound = result.find((i: Item) => i.year === year);

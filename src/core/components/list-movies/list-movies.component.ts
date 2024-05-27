@@ -107,7 +107,6 @@ export class ListMoviesComponent implements OnChanges, AfterViewInit {
     } else if (this.dataSource.filter) {
       this.dataSource.filter += filterValue;
     }
-    debugger;
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();

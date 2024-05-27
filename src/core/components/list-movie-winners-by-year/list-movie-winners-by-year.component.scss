@@ -1,0 +1,12 @@
+.list-movie-winners-by-year {
+  height: 334px;
+  overflow: auto;
+  margin-top: 20px;
+
+  table th {
+    mat-form-field {
+      width: 125%;
+      transform: translateX(-45px) scale(0.75);
+    }
+  }
+}
