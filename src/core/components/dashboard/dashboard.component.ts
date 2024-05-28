@@ -17,7 +17,7 @@ import { Movies } from '../../../shared/services/movies.interface';
     imports: [CardComponent, ListYearsWithMultipleWinnersComponent, Top3StudiosWithWinnersComponent, ProducersWithLongestAndShortestIntervalBetweenWinsComponent, ListMovieWinnersByYearComponent]
 })
 export class DashboardComponent {
-    constructor(private moviesService: MoviesService) {}
+    constructor(private moviesService: MoviesService) { }
 
     public get movies(): Movies {
         return this.moviesService.movies;

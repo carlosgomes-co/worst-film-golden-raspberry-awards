@@ -14,7 +14,7 @@ import { Movies } from '../../../shared/services/movies.interface';
     imports: [CardComponent, ListMoviesComponent]
 })
 export class ListComponent {
-    constructor(private moviesService: MoviesService) {}
+    constructor(private moviesService: MoviesService) { }
 
     public get movies(): Movies {
         return this.moviesService.movies;

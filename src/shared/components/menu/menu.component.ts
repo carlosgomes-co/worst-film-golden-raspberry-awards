@@ -14,11 +14,4 @@ import { fade } from '../../animations/fade';
 })
 export class MenuComponent {
   @Input() items: any[] = [];
-
-  // read the page from active route
-  // and save to property
-  activePage: string = '';
-  constructor() {
-    console.log();
-  }
 }
