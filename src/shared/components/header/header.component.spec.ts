@@ -17,7 +17,8 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should have the title set', () => {
+    const title = fixture.nativeElement.querySelector('header .title');
+    expect(title.textContent).toBe('Golden Raspberry Awards');
   });
 });
