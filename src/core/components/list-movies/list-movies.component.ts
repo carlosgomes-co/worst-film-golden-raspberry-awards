@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Movie, Movies } from '../../../shared/services/movies.interface';
+import { Movie } from '../../../shared/services/movies.interface';
+import { MoviesService } from '../../../shared/services/movies.service';
 
 export interface Item {
   id: number;
@@ -21,9 +22,15 @@ export interface Item {
   templateUrl: './list-movies.component.html',
   styleUrl: './list-movies.component.scss'
 })
-export class ListMoviesComponent implements OnChanges, AfterViewInit {
-  @Input() public movies: Movies = {} as Movies;
+export class ListMoviesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator = {} as MatPaginator;
+  pagination = {
+    number: 0,
+    size: 5,
+    totalElements: 0,
+    totalPages: 0
+  };
+  movies: Movie[] = [];
   displayedColumns = ['id', 'year', 'title', 'winner'];
   dataSource = new MatTableDataSource<Item>([]);
   input = new FormControl('');
@@ -31,19 +38,10 @@ export class ListMoviesComponent implements OnChanges, AfterViewInit {
   selectOptions: string[] = ['Yes', 'No'];
   private filters = { input: false, select: false };
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) { }
 
-  ngOnChanges(simpleChanges: SimpleChanges) {
-    if (simpleChanges['movies']?.currentValue) {
-      this.dataSource = new MatTableDataSource<Item>(this.movies._embedded.movies.reduce((result: Item[], movie: Movie) => {
-        const id = parseInt(movie._links.movie.href.split('/').pop() || '');
-        const winner = movie.winner ? this.selectOptions[0] : this.selectOptions[1];
-
-        result.push({ id, year: movie.year, title: movie.title, winner });
-
-        return result;
-      }, []).sort((a, b) => a.id - b.id));
-    }
+  ngOnInit() {
+    this.loadMovies();
   }
 
   ngAfterViewInit() {
@@ -113,4 +111,36 @@ export class ListMoviesComponent implements OnChanges, AfterViewInit {
     }
   }
 
+  private updateDataSource(movies: Movie[]){
+    this.dataSource = new MatTableDataSource<Item>(movies.reduce((result: Item[], movie: Movie) => {
+      const id = parseInt(movie._links.movie.href.split('/').pop() || '');
+      const winner = movie.winner ? this.selectOptions[0] : this.selectOptions[1];
+
+      result.push({ id, year: movie.year, title: movie.title, winner });
+
+      return result;
+    }, []).sort((a, b) => a.id - b.id));
+  }
+
+  private loadMovies() {
+    this.moviesService.getListMovies(
+      this.pagination.number,
+      this.pagination.size,
+    ).subscribe((movies) => {
+      this.pagination = movies.page;
+      this.movies = movies._embedded.movies;
+      this.updateDataSource(this.movies);
+    });
+  }
+
+  paginatorChanged(event: any) {
+    if (this.pagination.size !== event.pageSize) {
+      this.pagination.number = 1; //restore pagination
+    } else {
+      this.pagination.number = event.pageIndex;
+    }
+
+    this.pagination.size = event.pageSize;
+    this.loadMovies();
+  }
 }

@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     constructor(private moviesService: MoviesService) { }
 
     public ngOnInit(): void {
-        this.moviesService.getMovies().subscribe();
+        this.moviesService.getDashboardMovies().subscribe();
     }
 
 }
