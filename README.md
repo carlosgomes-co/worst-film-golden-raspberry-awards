@@ -27,25 +27,6 @@ The app is live on [`https://carlosgomes-co.github.io/worst-film-golden-raspberr
 
 </details>
 
-<details>
-	<summary><b>API Issue found</b></summary>
-
-The backend queries received didn't work properly. So I am using all the data from the request: `https://tools.texoit.com/backend-java/movies?size=206`.
-	
-These are the routes that doesn't return the expected data:
-	
-```
-	  https://tools.texoit.com/backend-java/movies?page=9&size=99&winner=true&year=2018
-	  https://tools.texoit.com/backend-java/movies?projection=years-with-multiple-winners
-	  https://tools.texoit.com/backend-java/movies?projection=studios-with-win-count
-	  https://tools.texoit.com/backend-java/movies?projection=max-min-win-interval-for-producers
-	  https://tools.texoit.com/backend-java/movies?winner=true&year=2018
-```
-	
-Those routes reponse are almost equals and doesn't represent the contract mentioned in the challenge pdf.
-
-</details>
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
