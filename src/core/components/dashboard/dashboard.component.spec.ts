@@ -35,7 +35,7 @@ describe('DashboardComponent', () => {
     /**
      * Arrange
     */
-    service.getMovies().subscribe();
+    service.getDashboardMovies().subscribe();
 
     /**
      * Act

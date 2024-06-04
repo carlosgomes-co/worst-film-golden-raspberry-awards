@@ -34,7 +34,7 @@ describe('AppComponent', () => {
     /**
      * Arrange
      */
-    service.getMovies().subscribe();
+    service.getDashboardMovies().subscribe();
     expect(component.loading).toBeTrue();
 
     /**
@@ -47,7 +47,7 @@ describe('AppComponent', () => {
     /**
      * Assert
      */
-    expect(service.movies._embedded.movies.length).toBe(2);
+    expect(service.dashboardMovies._embedded.movies.length).toBe(2);
     expect(component.loading).toBeFalse();
   });
 });

@@ -48,5 +48,11 @@
 
   </table>
 
-  <mat-paginator [pageSizeOptions]="[15, 50, 100]" showFirstLastButtons />
+  <mat-paginator #paginator showFirstLastButtons
+    [hidden]="movies.length === 0"
+    [pageSize]="pagination.size"
+    [pageSizeOptions]="[5, 10, 20, 50, 100]"
+    [length]="pagination.totalElements"
+    (page)="paginatorChanged($event)"
+  />
 </div>
